@@ -1,6 +1,6 @@
 # Description
 
-This project contains the material used for the following blog post about the usage the [security.txt](https://securitytxt.org/) file:
+This project contains the materials used for the following blog post about the usage the [security.txt](https://securitytxt.org/) file:
 
 XXXX
 
@@ -8,7 +8,7 @@ XXXX
 
 > Script call chain: `generate-source.(sh|ps1) > generate-stats.py`.
 
-> Requirements for the python script are installed via the command: `pip install -r requirements.txt`
+> Requirements for the python (**>= 3.7**) script are installed via the command: `pip install -r requirements.txt`
 
 *[generate-source.sh](generate-source.sh):*
 
@@ -23,6 +23,8 @@ Same goal the [generate-source.sh](generate-source.sh) but using direct database
 Check for the presence of the *security.txt* file on the differents domains.
 
 # Data file
+
+> File [source-test.txt](source-test.txt) is the same file than [source.txt](source.txt). However, it contains a subset of the domains because it is only used for the GitHub action workflow. The GitHub action workflow is used to allow the dependency checker of GitHub to verify that upgrading a dependency do not break the python script.
 
 *[source.txt](source.txt):*
 
