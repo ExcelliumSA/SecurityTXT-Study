@@ -8,7 +8,7 @@ XXXX
 
 # Scripts
 
-> Script call chain: `generate-source.(sh|ps1) > generate-stats.py`.
+> Script call chain: `generate-source.sh > generate-stats.py`.
 
 > Requirements for the python (**>= 3.7**) script are installed via the command: `pip install -r requirements.txt`
 
