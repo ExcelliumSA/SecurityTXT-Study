@@ -20,11 +20,17 @@ Extract a list of LU domains from Certificate Transparency log using [crt.sh](ht
 
 Same goal the [generate-source.sh](generate-source.sh) but using direct database access in order to extract more records. This script deal with limitations in terms of execution time allowed for a SQL query.
 
-However, after several tentatives, it was more efficient to use the web API via the [advanced search](https://crt.sh/?a=1) because query execution time limitations were too restrictives.
+:speech_balloon: However, after several tentatives, it was more efficient to use the web API via the [advanced search](https://crt.sh/?a=1) because query execution time limitations were too restrictives.
 
 *[generate-stats.py](generate-stats.py):*
 
 Check for the presence of the *security.txt* file on the differents domains.
+
+:speech_balloon: The approach, regarding the LU obtained domains, is the following:
+
+* If the domain is related to a non-web one (pop, ftp, lync, etc) then the subdomain is replaced by `www`: `sip.excellium.lu` become `www.excellium.lu`
+* If the domain if a mail address then the domain is extracted and the `www` subdomain is used as prefix: `info@excellium.lu` become `www.excellium.lu`
+* Duplicate domains are handled to only test a domain one time.
 
 *[test-script.sh](test-script.sh):*
 
