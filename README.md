@@ -20,6 +20,8 @@ Extract a list of LU domains from Certificate Transparency log using [crt.sh](ht
 
 Same goal the [generate-source.sh](generate-source.sh) but using direct database access in order to extract more records. This script deal with limitations in terms of execution time allowed for a SQL query.
 
+However, after several tentatives, it was more efficient to use the web API via the [advanced search](https://crt.sh/?a=1) because query execution time limitations were too restrictives.
+
 *[generate-stats.py](generate-stats.py):*
 
 Check for the presence of the *security.txt* file on the differents domains.

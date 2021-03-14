@@ -1,3 +1,5 @@
+# Ignore temporary working files
 domainsLU.json
-data*.*
-out.txt
+data.*
+*.tmp
+~*

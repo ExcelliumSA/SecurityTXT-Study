@@ -16,7 +16,7 @@ Shell used to build the source file:
 # Constants
 SOURCE_FILE = "source.txt"
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0"
-NON_WEB_SUB_DOMAIN = ["*", "autodiscover", "sip", "pop", "pop3", "imap", "smtp", "ftp", "lyncdiscover", "lyncweb"]
+NON_WEB_SUB_DOMAIN = ["*", "autodiscover", "sip", "pop", "pop3", "imap", "smtp", "ftp", "lyncdiscover", "lyncweb", "lync", "mx", "mx1", "mx2", "vpn"]
 FILE_LOCATIONS = ["/.well-known/security.txt", "/security.txt"]
 PROTOCOLS = ["https", "http"]
 DB_FILE = "data.db"
@@ -94,7 +94,7 @@ if __name__ == "__main__":
         curs.execute("CREATE TABLE IF NOT EXISTS result (id integer PRIMARY KEY, url text NOT NULL, found text NOT NULL);")
         curs.execute("DELETE FROM result;")
     print("[+] Process the list...")
-    with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
         for d in domains_list:
             executor.submit(worker, domain=d)
     print(f"\n[+] {len(domains_list)} domains tested - Results: ")
