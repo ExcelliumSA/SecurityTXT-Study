@@ -1,5 +1,7 @@
 # Description
 
+[![Test python script](https://github.com/ExcelliumSA/SecurityTXT-Study/actions/workflows/test-script.yml/badge.svg?branch=main)](https://github.com/ExcelliumSA/SecurityTXT-Study/actions/workflows/test-script.yml)
+
 This project contains the materials used for the following blog post about the usage the [security.txt](https://securitytxt.org/) file:
 
 XXXX
@@ -24,7 +26,7 @@ Check for the presence of the *security.txt* file on the differents domains.
 
 # Data file
 
-> File [source-test.txt](source-test.txt) is the same file than [source.txt](source.txt). However, it contains a subset of the domains because it is only used for the GitHub action workflow. The GitHub action workflow is used to allow the dependency checker of GitHub to verify that upgrading a dependency do not break the python script.
+> File [test-source.txt](test-source.txt) is the same file than [source.txt](source.txt). However, it contains a subset of the domains because it is only used for the [GitHub action workflow](.github/workflows/test-script.yml). The GitHub action workflow is used to allow the dependency checker of GitHub to verify that upgrading a dependency do not break the python script.
 
 *[source.txt](source.txt):*
 

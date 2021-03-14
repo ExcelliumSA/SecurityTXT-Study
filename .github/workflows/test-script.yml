@@ -18,6 +18,4 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Execute python script
-      run: |
-        mv source-test.txt source.txt 
-        python generate-stats.py
+      run: bash test-script.sh
