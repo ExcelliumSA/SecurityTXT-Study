@@ -54,11 +54,12 @@ def test_request(url, session):
     found = False
     try:
         response = session.get(url, verify=False, timeout=5, allow_redirects=True)
+        # Check only the presence of the field "Contact:" in order 
+        # to support a maximum of versions of the standard        
         found = (response.status_code == 200 
             and "Content-Type" in response.headers 
             and response.headers["Content-Type"] == "text/plain" 
-            and "Contact: mailto:" in response.text
-            and "Expires: " in response.text)
+            and "Contact:" in response.text)
     except:
         found = False
     return found
@@ -94,7 +95,7 @@ if __name__ == "__main__":
         curs.execute("CREATE TABLE IF NOT EXISTS result (id integer PRIMARY KEY, url text NOT NULL, found text NOT NULL);")
         curs.execute("DELETE FROM result;")
     print("[+] Process the list...")
-    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
         for d in domains_list:
             executor.submit(worker, domain=d)
     print(f"\n[+] {len(domains_list)} domains tested - Results: ")
