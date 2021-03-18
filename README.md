@@ -42,7 +42,11 @@ Used by the [GitHub action workflow](.github/workflows/test-script.yml) to ensur
 
 *[source.txt](source.txt):*
 
-Contains the list of all LU domains gathered.
+Contains the list of all LU domains gathered from [Certificate Transparency](https://crt.sh/).
+
+*[source2.txt](source2.txt):*
+
+Contains the list of all LU domains gathered from [Majestic Top 1 million most visited sites](https://blog.majestic.com/development/majestic-million-csv-daily/).
 
 # Images
 
