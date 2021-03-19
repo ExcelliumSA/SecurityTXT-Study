@@ -5,9 +5,7 @@ import os
 import concurrent.futures
 
 """
-Python3 script to compute stats about usage of "security.txt" file
-on a panel of Luxemburgish domain taken from Certificate Transparency log:
-    See https://crt.sh
+Python3 script to compute stats about usage of "security.txt" file on a panel of Luxemburgish domains.
 
 Dependencies:
     pip install requests
