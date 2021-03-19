@@ -11,7 +11,7 @@ Dependencies:
     pip install requests
 
 Shell used to build the source file: 
-    See script named "generate-source.sh"
+    See scripts named "generate-source-(ct|majestic).sh"
 """
 # Constants
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0"
