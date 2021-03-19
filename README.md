@@ -12,9 +12,13 @@ XXXX
 
 > Requirements for the python (**>= 3.7**) script are installed via the command: `pip install -r requirements.txt`
 
-*[generate-source-ct.sh](generate-source.sh):*
+*[generate-source-ct.sh](generate-source-ct.sh):*
 
 Extract a list of LU domains from Certificate Transparency log using [crt.sh](https://crt.sh) data provider.
+
+*[generate-source-ct.sh](generate-source-majestic.sh):*
+
+Extract a list of LU domains from [Majestic Top 1 million most visited sites](http://downloads.majestic.com/majestic_million.csv) data provider.
 
 *[generate-source.ps1](generate-source.ps1):*
 
