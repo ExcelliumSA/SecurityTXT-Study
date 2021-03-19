@@ -8,11 +8,11 @@ XXXX
 
 # Scripts
 
-> Script call chain: `generate-source.sh > generate-stats.py`.
+> Script call chain: `generate-source-(ct|majestic).sh > generate-stats.py`.
 
 > Requirements for the python (**>= 3.7**) script are installed via the command: `pip install -r requirements.txt`
 
-*[generate-source.sh](generate-source.sh):*
+*[generate-source-ct.sh](generate-source.sh):*
 
 Extract a list of LU domains from Certificate Transparency log using [crt.sh](https://crt.sh) data provider.
 
@@ -40,11 +40,11 @@ Used by the [GitHub action workflow](.github/workflows/test-script.yml) to ensur
 
 > File [test-source.txt](test-source.txt) is the same file than [source.txt](source.txt). However, it contains a subset of the domains because it is only used for the [GitHub action workflow](.github/workflows/test-script.yml). The GitHub action workflow is used to allow the dependency checker of GitHub to verify that upgrading a dependency do not break the python script.
 
-*[source.txt](source.txt):*
+*[source-ct.txt](source-ct.txt):*
 
-Contains the list of all LU domains gathered from [Certificate Transparency](https://crt.sh/).
+Contains the list of all LU domains gathered from [Certificate Transparency log](https://crt.sh/).
 
-*[source2.txt](source2.txt):*
+*[source-majestic.txt](source-majestic.txt):*
 
 Contains the list of all LU domains gathered from [Majestic Top 1 million most visited sites](https://blog.majestic.com/development/majestic-million-csv-daily/).
 
@@ -64,6 +64,7 @@ A workspace file as well as a python debug configuration file are provided.
 * https://securitytxt.org/ 
 * https://community.turgensec.com/security-txt-progress-in-ethical-security-research/ 
 * http://s3.amazonaws.com/alexa-static/top-1m.csv.zip 
+* https://blog.majestic.com/development/majestic-million-csv-daily/
 * https://certificate.transparency.dev/ 
 * https://www.randori.com/enumerating-subdomains-with-crt-sh/ 
 * https://github.com/crtsh/certwatch_db/blob/master/sql/create_schema.sql  

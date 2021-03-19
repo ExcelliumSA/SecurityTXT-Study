@@ -20,4 +20,5 @@ cat source.txt | sort -u > source.tmp
 mv source.tmp source.txt
 rm domainsLU.json
 echo "[+] Extraction finished."
-wc -l source.txt
+mv source.txt source-ct.txt
+wc -l source-ct.txt

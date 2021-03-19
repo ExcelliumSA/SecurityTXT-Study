@@ -1,5 +1,8 @@
 # Ignore temporary working files
 domainsLU.json
+source.txt
+majestic_million.csv
+out.txt
 data.*
 *.tmp
 ~*

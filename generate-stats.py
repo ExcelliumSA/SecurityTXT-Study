@@ -1,5 +1,7 @@
 import requests
 import sqlite3
+import sys
+import os
 import concurrent.futures
 
 """
@@ -14,7 +16,6 @@ Shell used to build the source file:
     See script named "generate-source.sh"
 """
 # Constants
-SOURCE_FILE = "source.txt"
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0"
 NON_WEB_SUB_DOMAIN = ["*", "autodiscover", "sip", "pop", "pop3", "imap", "smtp", "ftp", "lyncdiscover", "lyncweb", "lync", "mx", "mx1", "mx2", "vpn"]
 FILE_LOCATIONS = ["/.well-known/security.txt", "/security.txt"]
@@ -26,9 +27,9 @@ NON_WEB_SUB_DOMAIN.sort()
 requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
 
 # Utilities functions
-def prepare_domains_list():
+def prepare_domains_list(source_file):
     prepared_list = []
-    with open(SOURCE_FILE, "r", encoding="utf-8") as f:
+    with open(source_file, "r", encoding="utf-8") as f:
         domains = f.read().splitlines()
     for domain in domains:
         value = domain.lower().strip("\n\r\t ")
@@ -86,8 +87,12 @@ def worker(domain):
 
 # Program entry point
 if __name__ == "__main__":
+    if len(sys.argv) != 2 or not os.path.isfile(sys.argv[1]):
+        print("[!] Missing or invalid source file !")
+        sys.exit(1)
+    source_file = sys.argv[1]
     print("[+] Prepare the list of domains...")
-    domains_list = prepare_domains_list()
+    domains_list = prepare_domains_list(source_file)
     print(f"{len(domains_list)} domains selected.")
     print("[+] Initialize DB...")
     with sqlite3.connect(DB_FILE) as connection:
@@ -102,5 +107,14 @@ if __name__ == "__main__":
     with sqlite3.connect(DB_FILE) as connection:
         curs = connection.cursor()
         curs.execute("SELECT found, COUNT(found) FROM result GROUP BY found;")
+        present_count = 0
+        absent_count = 0
         for row in curs.fetchall():
-            print(f"{row[0]:<7}: {row[1]}")
+            if row[0] == "PRESENT":
+                present_count = row[1]
+            else:
+                absent_count = row[1]
+        present_percentage = round((present_count * 100) / len(domains_list), 2)
+        absent_percentage = round((absent_count * 100) / len(domains_list), 2)
+        print(f"ABSENT  : {absent_count:<5} ({absent_percentage}%)")
+        print(f"PRESENT : {present_count:<5} ({present_percentage}%)")
