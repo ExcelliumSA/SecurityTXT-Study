@@ -22,7 +22,7 @@ Extract a list of LU domains from [Majestic Top 1 million most visited sites](ht
 
 *[generate-source.ps1](generate-source.ps1):*
 
-Same goal the [generate-source.sh](generate-source.sh) but using direct database access in order to extract more records. This script deal with limitations in terms of execution time allowed for a SQL query.
+Same goal the [generate-source-ct.sh](generate-source-ct.sh) but using direct database access in order to extract more records. This script deal with limitations in terms of execution time allowed for a SQL query.
 
 :speech_balloon: However, after several tentatives, it was more efficient to use the web API via the [advanced search](https://crt.sh/?a=1) because query execution time limitations were too restrictives.
 
