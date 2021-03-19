@@ -42,7 +42,7 @@ Used by the [GitHub action workflow](.github/workflows/test-script.yml) to ensur
 
 # Data file
 
-> File [test-source.txt](test-source.txt) is the same file than [source.txt](source.txt). However, it contains a subset of the domains because it is only used for the [GitHub action workflow](.github/workflows/test-script.yml). The GitHub action workflow is used to allow the dependency checker of GitHub to verify that upgrading a dependency do not break the python script.
+> File [test-source.txt](test-source.txt) is the same file than `source-(ct|majestic).txt` files. However, it contains a subset of the domains because it is only used for the [GitHub action workflow](.github/workflows/test-script.yml). The GitHub action workflow is used to allow the dependency checker of GitHub to verify that upgrading a dependency do not break the python script.
 
 *[source-ct.txt](source-ct.txt):*
 
