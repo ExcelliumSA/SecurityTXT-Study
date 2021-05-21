@@ -4,7 +4,7 @@
 
 This project contains the materials used for the following blog post about the usage the [security.txt](https://securitytxt.org/) file:
 
-XXXX
+https://excellium-services.com/2021/05/18/security-txt/
 
 # Scripts
 
